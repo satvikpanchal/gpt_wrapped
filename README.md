@@ -4,6 +4,17 @@ Generate your own Spotify Wrapped-style recap of your ChatGPT usage. See your st
 
 ---
 
+## Preview
+
+<p align="center">
+  <img src="preview/page1.png" width="400"/>
+  <img src="preview/page2.png" width="400"/>
+  <img src="preview/page3.png" width="400"/>
+</p>
+<p align="center"><i>...and more</i></p>
+
+---
+
 ## Features
 
 - **Total Stats** - Words sent/received, messages exchanged, conversations started
