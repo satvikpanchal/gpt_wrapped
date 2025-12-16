@@ -112,7 +112,8 @@ def analyze_data(conversations):
         "longest_chat_messages": max_messages,
         "top_prompts": user_prompts[:10],
         "top_words": word_freq.most_common(10),
-        "model_usage": model_counts.most_common(6)
+        "model_usage": model_counts.most_common(6),
+        "total_conversations": len(conversations)
     }
 
 def create_overlay(page_num, data, width, height):
@@ -223,8 +224,7 @@ def create_overlay(page_num, data, width, height):
         y_pos = height - 350
         
         # Summary stats
-        total_convos = len(conversations) if 'conversations' in dir() else 1735
-        c.drawString(80, y_pos, f"TOTAL CONVERSATIONS: 1,735")
+        c.drawString(80, y_pos, f"TOTAL CONVERSATIONS: {data.get('total_conversations', 'N/A'):,}")
         
         y_pos -= 50
         c.drawString(80, y_pos, f"LONGEST CHAT: {data['longest_chat_messages']} MESSAGES")
