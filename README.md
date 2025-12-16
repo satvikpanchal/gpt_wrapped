@@ -1,5 +1,7 @@
 # GPT Wrapped 2025
 
+*Solely for fun, not associated with OpenAI or any other company/llc*
+
 Generate your own Spotify Wrapped-style recap of your ChatGPT usage. See your stats, streaks, favorite words, and more in a beautifully designed PDF.
 
 ---
