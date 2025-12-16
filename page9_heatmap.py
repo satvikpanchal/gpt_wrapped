@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-Page 9: 24-hour activity - 4 time blocks, clean format
+Page 9: Hourly Activity Heatmap
+
+Breaks down the user's activity across 24 hours, grouped into four
+time blocks (Night, Morning, Afternoon, Evening) to show when they
+chat with GPT the most.
 """
 import pickle
 from io import BytesIO
@@ -133,4 +137,4 @@ if __name__ == "__main__":
     from pypdf import PdfReader
     overlay = create_overlay()
     reader = PdfReader(overlay)
-    print(f"Page 9 overlay created")
+    print("Page 9 overlay created")

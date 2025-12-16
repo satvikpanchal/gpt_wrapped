@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-Page 11: GPT Persona - bigger image, liquid glass theme
+Page 11: GPT Persona
+
+Analyzes the user's conversation patterns and top words to determine
+their "GPT personality type" - a fun way to characterize how they
+typically interact with ChatGPT.
 """
 import pickle
 from io import BytesIO
@@ -161,4 +165,4 @@ if __name__ == "__main__":
     from pypdf import PdfReader
     overlay = create_overlay()
     reader = PdfReader(overlay)
-    print(f"Page 11 overlay created")
+    print("Page 11 overlay created")

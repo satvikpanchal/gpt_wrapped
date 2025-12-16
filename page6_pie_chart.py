@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-Page 6: Pie chart with white opaque square background
+Page 6: Model Usage Pie Chart
+
+Visualizes which GPT models the user interacted with most frequently,
+displayed as a colorful pie chart with a legend.
 """
 import pickle
 from io import BytesIO

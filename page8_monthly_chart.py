@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-Page 8: Horizontal bar chart with liquid glass background
+Page 8: Monthly Activity Chart
+
+Shows a horizontal bar chart of conversations per month,
+helping visualize usage patterns throughout the year.
 """
 import pickle
 from io import BytesIO
@@ -35,8 +38,8 @@ def create_bar_chart():
         b = 0.15 - (0.15 * intensity)
         colors.append((r, max(0, g), max(0, b)))
     
-    # Create figure with transparent background
-    fig, ax = plt.subplots(figsize=(10, 12), facecolor='none')
+    # Create figure with transparent background - taller for more space
+    fig, ax = plt.subplots(figsize=(10, 14), facecolor='none')
     ax.set_facecolor('none')
     
     y_pos = np.arange(len(months))
@@ -59,7 +62,7 @@ def create_bar_chart():
     ax.set_yticklabels(months, color='#333333', fontsize=16, fontweight='bold')
     ax.invert_yaxis()
     
-    ax.set_xlabel('CONVERSATIONS', color='#333333', fontsize=14, fontweight='bold', labelpad=15)
+    # Remove x-axis label (CONVERSATIONS)
     ax.tick_params(axis='x', colors='#333333', labelsize=12)
     
     for spine in ax.spines.values():
@@ -87,11 +90,11 @@ def create_overlay():
     chart_buf = create_bar_chart()
     img = Image.open(chart_buf)
     
-    # Chart dimensions
+    # Chart dimensions - taller chart, bottom aligned with "NUMBER OF CONVERSATIONS"
     chart_width = 680
-    chart_height = 900
+    chart_height = 1020
     chart_x = (PAGE_WIDTH - chart_width) / 2
-    chart_y = 280
+    chart_y = 200  # Lower to align bottom with text
     
     # Liquid glass background
     padding = 30
@@ -121,4 +124,4 @@ if __name__ == "__main__":
     from pypdf import PdfReader
     overlay = create_overlay()
     reader = PdfReader(overlay)
-    print(f"Page 8 overlay created")
+    print("Page 8 overlay created")

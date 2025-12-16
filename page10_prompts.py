@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-Page 10: Top 10 longest prompts - matching page 5 style
+Page 10: Longest Prompts
+
+Displays the user's top 10 longest prompts by word count,
+styled consistently with the top words table on page 5.
 """
 import pickle
 from io import BytesIO
@@ -89,4 +92,4 @@ if __name__ == "__main__":
     from pypdf import PdfReader
     overlay = create_overlay()
     reader = PdfReader(overlay)
-    print(f"Page 10 overlay created")
+    print("Page 10 overlay created")
