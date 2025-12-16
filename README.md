@@ -47,10 +47,10 @@ Make sure you have Python 3.8 or higher installed.
 
 ```bash
 # Check your Python version
-python --version
+python3 --version
 
 # Create a virtual environment
-python -m venv venv
+python3 -m venv venv
 
 # Activate the virtual environment
 # On macOS/Linux:
@@ -82,7 +82,7 @@ For example:
 ### Step 6: Generate Your Wrapped
 
 ```bash
-python compile_pdf.py
+python3 compile_pdf.py
 ```
 
 ### Step 7: View Your Results
