@@ -68,16 +68,16 @@ pip install -r requirements.txt
 
 ### Step 5: Configure Your Data Path
 
-Open `data_extractor.py` in any text editor and update the `DATA_FILE` path to point to your `conversations.json` file:
+Open `config.txt` and update the path to point to your `conversations.json` file:
 
-```python
-DATA_FILE = "path/to/your/conversations.json"
+```
+DATA_FILE=path/to/your/conversations.json
 ```
 
 For example:
-- macOS: `DATA_FILE = "/Users/yourname/Downloads/chatgpt-export/conversations.json"`
-- Windows: `DATA_FILE = "C:/Users/yourname/Downloads/chatgpt-export/conversations.json"`
-- Or just copy the conversations.json to this folder and use: `DATA_FILE = "conversations.json"`
+- macOS: `DATA_FILE=/Users/yourname/Downloads/chatgpt-export/conversations.json`
+- Windows: `DATA_FILE=C:/Users/yourname/Downloads/chatgpt-export/conversations.json`
+- Or just copy the conversations.json to this folder and use: `DATA_FILE=conversations.json`
 
 ### Step 6: Generate Your Wrapped
 
@@ -94,7 +94,7 @@ Open `gpt_wrapped_2025_final.pdf` - that's your personalized GPT Wrapped!
 ## Troubleshooting
 
 ### "FileNotFoundError: conversations.json"
-- Make sure the path in `data_extractor.py` points to your actual `conversations.json` file
+- Make sure the path in `config.txt` points to your actual `conversations.json` file
 - Try using an absolute path (full path starting from root)
 
 ### "No module named 'PIL'" or similar
@@ -117,6 +117,7 @@ Open `gpt_wrapped_2025_final.pdf` - that's your personalized GPT Wrapped!
 gpt_wrapped/
 ├── compile_pdf.py              # Main script - runs everything
 ├── data_extractor.py           # Extracts stats from conversations.json
+├── config.txt                  # Your data path configuration
 ├── GPT_WRAPPED_TEMPLATE.pdf    # Template PDF with backgrounds
 ├── requirements.txt            # Python dependencies
 ├── extracted_data.pkl          # Cached stats (auto-generated)

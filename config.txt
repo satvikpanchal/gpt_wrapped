@@ -1,0 +1,5 @@
+# GPT Wrapped Configuration
+# Update the path below to point to your ChatGPT conversations.json export
+
+DATA_FILE=path/to/your/conversations.json
+
