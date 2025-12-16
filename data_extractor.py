@@ -5,13 +5,24 @@ GPT Wrapped Data Extractor
 Parses your ChatGPT conversations.json export and extracts all the analytics
 needed for generating your personalized GPT Wrapped report.
 """
+import os
 import json
 from datetime import datetime
 from collections import Counter, defaultdict
 import pickle
 
-# Path to your ChatGPT data export (update this to your own file)
-DATA_FILE = "path/to/your/conversations.json"
+# Load data file path from config
+def load_config():
+    """Read the data file path from config.txt"""
+    config_path = os.path.join(os.path.dirname(__file__), "config.txt")
+    with open(config_path, "r") as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith("DATA_FILE="):
+                return line.split("=", 1)[1].strip()
+    raise ValueError("DATA_FILE not found in config.txt")
+
+DATA_FILE = load_config()
 
 # Only include conversations from this year onwards
 CUTOFF = datetime(2025, 1, 1)

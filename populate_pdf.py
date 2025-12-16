@@ -12,10 +12,21 @@ from reportlab.lib.colors import Color, white, HexColor
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from io import BytesIO
+import os
 
-# Constants
-DATA_FILE = "51f364fa5a7837c908187fdb2f76ed29f4b3ca825902b01b83b0450feb257ac1-2025-12-04-05-31-50-95251bd2a47f433c9bd2eea0dbba91bf/conversations.json"
-PDF_FILE = "Green and Orange Dynamic 2025 Company Wrapped Annual report Presentation.pdf"
+# Load data file path from config
+def load_config():
+    """Read the data file path from config.txt"""
+    config_path = os.path.join(os.path.dirname(__file__), "config.txt")
+    with open(config_path, "r") as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith("DATA_FILE="):
+                return line.split("=", 1)[1].strip()
+    raise ValueError("DATA_FILE not found in config.txt")
+
+DATA_FILE = load_config()
+PDF_FILE = "GPT_WRAPPED_TEMPLATE.pdf"
 OUTPUT_FILE = "gpt_wrapped_2025_populated.pdf"
 CUTOFF = datetime(2025, 1, 1)
 
