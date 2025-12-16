@@ -54,7 +54,22 @@ Or download and extract the ZIP file.
 
 ### Step 3: Set Up Python Environment
 
-Make sure you have Python 3.8 or higher installed.
+Make sure you have Python 3.9 or higher installed.
+
+EXAMPLE:
+```bash
+# Create a virtual environment
+python3.9 -m venv venv
+
+# Activate the virtual environment
+# On macOS/Linux:
+source venv/bin/activate
+
+# On Windows:
+venv\Scripts\activate
+```
+
+OR
 
 ```bash
 # Check your Python version
