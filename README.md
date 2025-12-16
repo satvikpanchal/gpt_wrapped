@@ -20,41 +20,94 @@ Generate your own Spotify Wrapped-style recap of your ChatGPT usage. See your st
 
 ## Quick Start
 
-### 1. Export Your ChatGPT Data
+### Step 1: Export Your ChatGPT Data
 
-1. Go to [ChatGPT](https://chat.openai.com)
-2. Click your profile, then Settings
-3. Data Controls, then Export Data
-4. Wait for the email, download and unzip
+1. Go to https://chat.openai.com
+2. Click your profile icon in the bottom-left corner
+3. Click **Settings**
+4. Go to **Data Controls**
+5. Click **Export Data**
+6. Confirm by clicking **Export**
+7. Wait for an email from OpenAI (usually takes a few minutes)
+8. Download the zip file from the email link
+9. Unzip the file - you'll find a folder containing `conversations.json`
 
-You'll get a folder containing `conversations.json` - that's what we need.
-
-### 2. Install Dependencies
+### Step 2: Clone or Download This Project
 
 ```bash
-# Create virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install required packages
-pip install pillow reportlab pypdf matplotlib numpy
+git clone https://github.com/YOUR_USERNAME/gpt_wrapped.git
+cd gpt_wrapped
 ```
 
-### 3. Configure Your Data Path
+Or download and extract the ZIP file.
 
-Open `data_extractor.py` and update the path to your conversations file:
+### Step 3: Set Up Python Environment
+
+Make sure you have Python 3.8 or higher installed.
+
+```bash
+# Check your Python version
+python --version
+
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On macOS/Linux:
+source venv/bin/activate
+
+# On Windows:
+venv\Scripts\activate
+```
+
+### Step 4: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 5: Configure Your Data Path
+
+Open `data_extractor.py` in any text editor and update the `DATA_FILE` path to point to your `conversations.json` file:
 
 ```python
-DATA_FILE = "/path/to/your/conversations.json"
+DATA_FILE = "path/to/your/conversations.json"
 ```
 
-### 4. Generate Your Wrapped
+For example:
+- macOS: `DATA_FILE = "/Users/yourname/Downloads/chatgpt-export/conversations.json"`
+- Windows: `DATA_FILE = "C:/Users/yourname/Downloads/chatgpt-export/conversations.json"`
+- Or just copy the conversations.json to this folder and use: `DATA_FILE = "conversations.json"`
+
+### Step 6: Generate Your Wrapped
 
 ```bash
 python compile_pdf.py
 ```
 
-Your personalized recap will be saved as `gpt_wrapped_2025_final.pdf`
+### Step 7: View Your Results
+
+Open `gpt_wrapped_2025_final.pdf` - that's your personalized GPT Wrapped!
+
+---
+
+## Troubleshooting
+
+### "FileNotFoundError: conversations.json"
+- Make sure the path in `data_extractor.py` points to your actual `conversations.json` file
+- Try using an absolute path (full path starting from root)
+
+### "No module named 'PIL'" or similar
+- Make sure you activated the virtual environment: `source venv/bin/activate`
+- Run `pip install -r requirements.txt` again
+
+### "Template has 0 pages" or PDF errors
+- Make sure `GPT_WRAPPED_TEMPLATE.pdf` exists in the project folder
+- Don't rename or move the template file
+
+### Charts look wrong or data seems off
+- Make sure your `conversations.json` is from a recent ChatGPT export
+- The script filters for 2025 conversations by default
 
 ---
 
@@ -65,6 +118,7 @@ gpt_wrapped/
 ├── compile_pdf.py              # Main script - runs everything
 ├── data_extractor.py           # Extracts stats from conversations.json
 ├── GPT_WRAPPED_TEMPLATE.pdf    # Template PDF with backgrounds
+├── requirements.txt            # Python dependencies
 ├── extracted_data.pkl          # Cached stats (auto-generated)
 ├── gpt_wrapped_2025_final.pdf  # Your output
 │
@@ -94,7 +148,7 @@ gpt_wrapped/
 By default, it filters for 2025 conversations. To change this, edit `data_extractor.py`:
 
 ```python
-CUTOFF = datetime(2025, 1, 1)  # Change year here
+CUTOFF = datetime(2024, 1, 1)  # Change to 2024 or any year
 ```
 
 ### Modify Page Layouts
@@ -113,15 +167,15 @@ Replace `GPT_WRAPPED_TEMPLATE.pdf` with your own 13-page template PDF, then adju
 ## Requirements
 
 - Python 3.8+
-- PIL/Pillow
-- ReportLab
-- PyPDF
-- Matplotlib
-- NumPy
+- pillow >= 10.0.0
+- reportlab >= 4.0.0
+- pypdf >= 3.0.0
+- matplotlib >= 3.7.0
+- numpy >= 1.24.0
 
 ---
 
-## What Stats Are Tracked?
+## Stats Tracked
 
 | Stat | Description |
 |------|-------------|
@@ -140,16 +194,6 @@ Replace `GPT_WRAPPED_TEMPLATE.pdf` with your own 13-page template PDF, then adju
 
 ---
 
-## Contributing
-
-Feel free to:
-- Add new page designs
-- Improve the statistics extraction
-- Create alternative templates
-- Add more visualization types
-
----
-
 ## License
 
 MIT License - Use it, modify it, share it.
@@ -157,5 +201,3 @@ MIT License - Use it, modify it, share it.
 ---
 
 **Made for the ChatGPT community**
-
-See you next year!
