@@ -11,7 +11,7 @@ from collections import Counter, defaultdict
 import pickle
 
 # Path to your ChatGPT data export (update this to your own file)
-DATA_FILE = "51f364fa5a7837c908187fdb2f76ed29f4b3ca825902b01b83b0450feb257ac1-2025-12-04-05-31-50-95251bd2a47f433c9bd2eea0dbba91bf/conversations.json"
+DATA_FILE = "path/to/your/conversations.json"
 
 # Only include conversations from this year onwards
 CUTOFF = datetime(2025, 1, 1)
