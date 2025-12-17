@@ -23,11 +23,11 @@ Generate your own Spotify Wrapped-style recap of your ChatGPT usage. See your st
 - **Longest Streak** - Your most consistent ChatGPT usage period
 - **Top Words** - Your 10 most frequently used words
 - **Model Usage** - Pie chart of which GPT models you used
-- **Longest Chat** - Your marathon conversation topic
+- **Longest Chat** - Longest conversation on a topic
 - **Monthly Activity** - Bar chart of conversations per month
 - **Activity Heatmap** - When you chat the most (by hour/day)
-- **GPT Persona** - What kind of GPT user are you?
-- **Summary Dashboard** - All your key stats in one polished view
+- **GPT Persona** - Predefined personsas
+- **Summary Dashboard** - All your key stats
 
 ---
 
@@ -180,22 +180,11 @@ By default, it filters for 2025 conversations. To change this, edit `data_extrac
 CUTOFF = datetime(2024, 1, 1)  # Change to 2024 or any year
 ```
 
-### Modify Page Layouts
-
-Each `pageX_*.py` file controls one page's overlay. Key variables:
-- `PAGE_WIDTH = 810`
-- `PAGE_HEIGHT = 1440`
-- Coordinates: `y=0` is bottom, `y=1440` is top
-
-### Use a Different Template
-
-Replace `GPT_WRAPPED_TEMPLATE.pdf` with your own 13-page template PDF, then adjust the overlay positions in each page file.
-
 ---
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.9+
 - pillow >= 10.0.0
 - reportlab >= 4.0.0
 - pypdf >= 3.0.0
